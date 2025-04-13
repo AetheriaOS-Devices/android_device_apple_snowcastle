@@ -1,0 +1,7 @@
+//
+// SPDX-FileCopyrightText: The Wildroid Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+soong_namespace {
+}
