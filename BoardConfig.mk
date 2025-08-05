@@ -82,6 +82,9 @@ BOARD_VENDORIMAGE_PARTITION_RESERVED_SIZE := 67108864
 # Platform
 TARGET_BOARD_PLATFORM := snowcastle
 
+# Properties
+TARGET_VENDOR_PROP += $(DEVICE_PATH)/configs/vendor.prop
+
 # Recovery
 TARGET_RECOVERY_DENSITY := xxhdpi
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/configs/fstab.snowcastle
