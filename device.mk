@@ -30,6 +30,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     use_memfd.rc
 
+$(call soong_config_set,mainline_common_libinit,set_properties_from,devicetree)
+
 # Images
 PRODUCT_BUILD_BOOT_IMAGE := false
 PRODUCT_BUILD_RAMDISK_IMAGE := true
