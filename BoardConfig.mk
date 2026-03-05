@@ -47,12 +47,11 @@ TARGET_PREBUILT_KERNEL := device/apple/snowcastle-kernel/Image.gz-dtb
 else
 $(warning Using source-built kernel)
 BOARD_KERNEL_IMAGE_NAME := Image.gz
-TARGET_KERNEL_SOURCE := kernel/apple
-
-TARGET_KERNEL_CONFIG := \
-    defconfig
+TARGET_KERNEL_SOURCE := kernel/apple/HoolockLinux
 
 TARGET_KERNEL_CONFIG_EXT := \
+    $(DEVICE_PATH)/kconfigs/config-postmarketos-apple-4k.aarch64 \
+    $(DEVICE_PATH)/kconfigs/apple.config \
     kernel/mainline/configs/fragments/android-base-pre/common.config \
     kernel/mainline/configs/fragments/android-base-pre/arm64.config \
     kernel/configs/b/android-6.12/android-base.config \
@@ -61,8 +60,7 @@ TARGET_KERNEL_CONFIG_EXT := \
     kernel/mainline/configs/fragments/y/arm64/pagesize-16k.config \
     kernel/mainline/configs/fragments/y/fbcon.config \
     kernel/mainline/configs/fragments/n/disable-clang-hardening-features.config \
-    kernel/mainline/configs/fragments/n/faster-build-time.config \
-    $(DEVICE_PATH)/kconfigs/iphone.config
+    kernel/mainline/configs/fragments/n/faster-build-time.config
 endif
 
 # OTA
