@@ -40,6 +40,7 @@ $(call soong_config_set,mainline_common_libinit,set_properties_from,devicetree)
 
 # Images
 PRODUCT_BUILD_BOOT_IMAGE := true
+PRODUCT_BUILD_DEBUG_BOOT_IMAGE := true
 PRODUCT_BUILD_RAMDISK_IMAGE := true
 PRODUCT_BUILD_RECOVERY_IMAGE := true
 PRODUCT_USE_DYNAMIC_PARTITION_SIZE := true
