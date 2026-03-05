@@ -24,6 +24,7 @@ BOARD_KERNEL_CMDLINE := \
     $(MAINLINE_COMMON_KERNEL_PARAMS) \
     androidboot.fstab_suffix=$(SNOWCASTLE_PARTITION_SCHEME) \
     androidboot.hardware=snowcastle \
+    androidboot.serialno=snowcastle \
     androidboot.verifiedbootstate=orange \
     console=tty0
 
