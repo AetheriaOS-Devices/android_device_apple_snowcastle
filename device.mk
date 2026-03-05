@@ -5,6 +5,10 @@
 
 DEVICE_PATH := device/apple/snowcastle
 
+# Defaults
+SNOWCASTLE_PARTITION_SCHEME ?= apfs
+$(warning Using $(SNOWCASTLE_PARTITION_SCHEME) partition scheme)
+
 # Inherit from mainline/common
 TARGET_INITIAL_BRINGUP := true
 TARGET_USES_FRAMEBUFFER_DISPLAY := true
@@ -24,7 +28,7 @@ PRODUCT_PACKAGES += \
 
 # Init
 PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/configs/fstab.snowcastle:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.snowcastle \
+    $(DEVICE_PATH)/configs/fstab.$(SNOWCASTLE_PARTITION_SCHEME):$(TARGET_COPY_OUT_VENDOR)/etc/fstab.$(SNOWCASTLE_PARTITION_SCHEME) \
     $(DEVICE_PATH)/configs/init.snowcastle.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.snowcastle.rc
 
 PRODUCT_PACKAGES += \
@@ -52,7 +56,7 @@ PRODUCT_COPY_FILES += \
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/configs/fstab.snowcastle:$(TARGET_COPY_OUT_RAMDISK)/fstab.snowcastle
+    $(DEVICE_PATH)/configs/fstab.$(SNOWCASTLE_PARTITION_SCHEME):$(TARGET_COPY_OUT_RAMDISK)/fstab.$(SNOWCASTLE_PARTITION_SCHEME)
 
 # Recovery
 PRODUCT_COPY_FILES += \

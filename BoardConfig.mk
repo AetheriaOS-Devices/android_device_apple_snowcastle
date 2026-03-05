@@ -22,11 +22,16 @@ TARGET_CPU_VARIANT := generic
 BOARD_KERNEL_CMDLINE := \
     $(MAINLINE_COMMON_ANDROIDBOOT_PARAMS) \
     $(MAINLINE_COMMON_KERNEL_PARAMS) \
+    androidboot.fstab_suffix=$(SNOWCASTLE_PARTITION_SCHEME) \
     androidboot.hardware=snowcastle \
-    androidboot.partition_map=nvme0n1p1,base \
-    androidboot.use_tmpfs_userdata=1 \
     androidboot.verifiedbootstate=orange \
     console=tty0
+
+ifeq ($(SNOWCASTLE_PARTITION_SCHEME),apfs)
+BOARD_KERNEL_CMDLINE += \
+    androidboot.partition_map=nvme0n1p1,base \
+    androidboot.use_tmpfs_userdata=1
+endif
 
 # Display
 TARGET_SCREEN_DENSITY := 400
@@ -64,7 +69,9 @@ TARGET_KERNEL_CONFIG_EXT := \
 endif
 
 # OTA
+ifeq ($(SNOWCASTLE_PARTITION_SCHEME),apfs)
 TARGET_SKIP_OTA_PACKAGE := true
+endif
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 4096
@@ -86,7 +93,7 @@ TARGET_VENDOR_PROP += $(DEVICE_PATH)/configs/vendor.prop
 
 # Recovery
 TARGET_RECOVERY_DENSITY := xxhdpi
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/configs/fstab.snowcastle
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/configs/fstab.$(SNOWCASTLE_PARTITION_SCHEME)
 
 # VINTF
 DEVICE_MANIFEST_FILE := \
