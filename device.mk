@@ -6,7 +6,7 @@
 DEVICE_PATH := device/apple/snowcastle
 
 # Defaults
-SNOWCASTLE_PARTITION_SCHEME ?= apfs
+SNOWCASTLE_PARTITION_SCHEME ?= normal
 $(warning Using $(SNOWCASTLE_PARTITION_SCHEME) partition scheme)
 
 # Inherit from mainline/common
@@ -37,7 +37,7 @@ PRODUCT_PACKAGES += \
 $(call soong_config_set,mainline_common_libinit,set_properties_from,devicetree)
 
 # Images
-PRODUCT_BUILD_BOOT_IMAGE := false
+PRODUCT_BUILD_BOOT_IMAGE := true
 PRODUCT_BUILD_RAMDISK_IMAGE := true
 PRODUCT_BUILD_RECOVERY_IMAGE := true
 PRODUCT_USE_DYNAMIC_PARTITION_SIZE := true
