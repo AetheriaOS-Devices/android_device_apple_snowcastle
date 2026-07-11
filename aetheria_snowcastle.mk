@@ -13,7 +13,7 @@ $(call inherit-product, vendor/lineage/config/common_mini_phone.mk)
 # Inherit from device
 $(call inherit-product, device/apple/snowcastle/device.mk)
 
-PRODUCT_NAME := lineage_snowcastle
+PRODUCT_NAME := aetheria_snowcastle
 PRODUCT_DEVICE := snowcastle
 PRODUCT_BRAND := Apple
 PRODUCT_MANUFACTURER := Apple
