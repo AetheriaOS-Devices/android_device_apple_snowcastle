@@ -4,7 +4,7 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_snowcastle.mk
+    $(LOCAL_DIR)/aetheria_snowcastle.mk
 
 $(foreach build_type, user userdebug eng, \
-    $(eval COMMON_LUNCH_CHOICES += lineage_snowcastle-$(build_type)))
+    $(eval COMMON_LUNCH_CHOICES += aetheria_snowcastle-$(build_type)))
